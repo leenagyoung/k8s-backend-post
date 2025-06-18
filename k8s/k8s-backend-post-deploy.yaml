@@ -23,7 +23,7 @@ spec:
             - containerPort: 8080
           livenessProbe:
             httpGet:
-              path: /backend/user/v1/k8s/liveness # 스프링 부트 생존 상태 엔드포인트
+              path: /backend/post/v1/k8s/liveness # 스프링 부트 생존 상태 엔드포인트
               port: 8080
             initialDelaySeconds: 30 # 컨테이너 시작 후 대기 시간 (애플리케이션 초기화 시간 고려)
             periodSeconds: 10 # 10초마다 체크
@@ -32,7 +32,7 @@ spec:
           # Readiness Probe 추가 (트래픽 유입 제어용)
           readinessProbe:
             httpGet:
-              path: /backend/user/v1/k8s/readiness # 스프링 부트 준비 상태 엔드포인트
+              path: /backend/post/v1/k8s/readiness # 스프링 부트 준비 상태 엔드포인트
               port: 8080
             initialDelaySeconds: 30 # 컨테이너 시작 후 첫 검사까지 대기
             periodSeconds: 5 # 5초마다 체크
